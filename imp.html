@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Valuable People in Naruto's Life</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: url('nar.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Adding a semi-transparent overlay to improve text readability */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7); /* Dark overlay */
+      z-index: -1;
+    }
+
+    /* Header Styling */
+    .header {
+      text-align: center;
+      padding: 20px;
+      background: rgba(255, 165, 0, 0.8);
+      color: #fff;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 3em;
+    }
+
+    .header nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 1.2em;
+    }
+
+    .header nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* Main Section Styling */
+    .main {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .main h2 {
+      color: #ffa500;
+    }
+
+    /* Carousel Container */
+    .carousel-container {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      margin: 20px auto;
+    }
+
+    /* Carousel Wrapper */
+    .carousel-wrapper {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    /* Carousel Item */
+    .carousel-item {
+      min-width: 100%;
+      box-sizing: border-box;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .carousel-item img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      margin-bottom: 20px;
+    }
+
+    .carousel-item p {
+      font-size: 1.2em;
+    }
+
+    /* Navigation Buttons */
+    .nav-button {
+      position: absolute;
+      top: 50%;
+      width: 40px;
+      height: 40px;
+      background-color: rgba(255, 165, 0, 0.8);
+      border: none;
+      cursor: pointer;
+      color: white;
+      font-size: 20px;
+      line-height: 40px;
+      text-align: center;
+      transform: translateY(-50%);
+    }
+
+    .nav-button.left {
+      left: 10px;
+    }
+
+    .nav-button.right {
+      right: 10px;
+    }
+
+    .nav-button:focus {
+      outline: none;
+    }
+
+    /* Footer Styling */
+    .footer {
+      text-align: center;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.8);
+      color: #fff;
+    }
+
+    .footer p {
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <h1> Valuable people in Naruto's Life</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="imp.html">Valuable People</a>
+      <a href="more.html">More About Naruto</a>
+    </nav>
+  </header>
+
+  <main class="main">
+    <h2>The  Valuable personalities in Naruto Uzumaki's Journey</h2>
+
+    
+    <div class="carousel-container">
+      <div class="carousel-wrapper" id="carousel">
+     
+        <div class="carousel-item">
+          <h3>Sasuke Uchiha</h3>
+          <img src="sasuke.png" alt="Sasuke Uchiha">
+          <p>Sasuke Uchiha is Naruto's best friend and rival. Their relationship is complex, evolving from competition to deep friendship. Sasuke's quest for power and revenge often puts him at odds with Naruto, but their bond remains unbreakable. Naruto's determination to bring Sasuke back to the village is a central theme in the series.</p>
+        </div>
+ 
+        <div class="carousel-item">
+          <h3>Sakura Haruno</h3>
+          <img src="sakura.png" alt="Sakura Haruno">
+          <p>Sakura Haruno is Naruto's teammate and a skilled ninja in her own right. Initially infatuated with Sasuke, she grows to become a formidable fighter and a crucial member of Team 7. Her relationship with Naruto evolves from mild annoyance to deep respect and friendship as they support each other through their adventures.</p>
+        </div>
+        <div class="carousel-item">
+          <h3>Kakashi Hatake</h3>
+          <img src="kaka.png" alt="Kakashi Hatake">
+          <p>Kakashi Hatake is the mentor of Team 7 and plays a significant role in Naruto's growth as a ninja. Known as the "Copy Ninja," Kakashi's wisdom, skill, and leadership profoundly influence Naruto and his teammates. His teachings and support help shape Naruto's path to becoming a great ninja.</p>
+        </div>
+      </div>
+ 
+      <button class="nav-button left" onclick="prevSlide()">&#10094;</button>
+      <button class="nav-button right" onclick="nextSlide()">&#10095;</button>
+    </div>
+ 
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2024  Tribute To Naruto Uzumaki. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    let currentSlide = 0;
+
+    function showSlide(index) {
+      const carousel = document.getElementById('carousel');
+      const slides = document.querySelectorAll('.carousel-item');
+      const totalSlides = slides.length;
+      
+   
+      if (index >= totalSlides) {
+        currentSlide = 0;
+      } else if (index < 0) {
+        currentSlide = totalSlides - 1;
+      } else {
+        currentSlide = index;
+      }
+
+   
+      const offset = -currentSlide * 100;
+      carousel.style.transform = `translateX(${offset}%)`;
+    }
+
+    function nextSlide() {
+      showSlide(currentSlide + 1);
+    }
+
+    function prevSlide() {
+      showSlide(currentSlide - 1);
+    }
+
+    
+    showSlide(currentSlide);
+  </script>
+</body>
+</html>
